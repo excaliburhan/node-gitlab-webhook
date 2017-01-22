@@ -66,7 +66,7 @@ function create(options) {
     if (!event)
       return hasError('No X-Gitlab-Event found on request')
     
-    if (events && events.indexOf(event) == -1)
+    if (events && events.indexOf(event) === -1)
       return hasError('X-Gitlab-Event is not acceptable')
     
     req.pipe(bl(function(err, data) {
