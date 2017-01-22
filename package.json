@@ -1,0 +1,27 @@
+{
+  "name": "node-gitlab-webhook",
+  "version": "1.0.0",
+  "description": "Gitlab Webhooks handler based on Node.js. Support multiple handlers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/excaliburhan/node-gitlab-webhook.git"
+  },
+  "keywords": [
+    "Gitlab",
+    "Webhooks",
+    "Node.js"
+  ],
+  "author": "xiaoping",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/excaliburhan/node-gitlab-webhook/issues"
+  },
+  "homepage": "https://github.com/excaliburhan/node-gitlab-webhook#readme",
+  "dependencies": {
+    "bl": "^1.2.0"
+  }
+}
