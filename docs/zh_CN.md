@@ -1,30 +1,26 @@
 # node-gitlab-webhook
-Gitlab Webhooks handler based on Node.js. Support multiple handlers.
+基于Node.js的Gitlab Webhooks工具, 支持设置多个钩子.
 
-## Language
+## 介绍
 
-- [中文](https://github.com/excaliburhan/node-gitlab-webhook/blob/master/docs/zh_CN.md)
+这个项目是专门为Gitlab设置，Github的版本：[node-github-webhook](https://github.com/excaliburhan/node-github-webhook).
 
-## Instructions
+如果你想要查看Gitlab Webhooks的设置，请看：[gitlab webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html).
 
-This library is modified for Gitlab, Github version here: [node-github-webhook](https://github.com/excaliburhan/node-github-webhook).
-
-If you want to know the settings of Gitlab webhooks, please see: [gitlab webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html).
-
-## Installation
+## 安装
 
 `npm install node-gitlab-webhook --save`
 
-## Usage
+## 使用
 
 ```js
 var http = require('http')
 var createHandler = require('node-gitlab-webhook')
-var handler = createHandler([ // multiple handlers
+var handler = createHandler([ // 多个钩子
   { path: '/webhook1', secret: 'secret1' },
   { path: '/webhook2', secret: 'secret2' }
 ])
-// var handler = createHandler({ path: '/webhook1', secret: 'secret1' }) // single handler
+// var handler = createHandler({ path: '/webhook1', secret: 'secret1' }) // 单个钩子
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
@@ -45,13 +41,13 @@ handler.on('push', function (event) {
   )
   switch (event.path) {
     case '/webhook1':
-      // do sth about webhook1
+      // 处理webhook1
       break
     case '/webhook2':
-      // do sth about webhook2
+      // 处理webhook2
       break
     default:
-      // do sth else or nothing
+      // 处理其他
       break
   }
 })
