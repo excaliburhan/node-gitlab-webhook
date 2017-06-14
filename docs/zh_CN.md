@@ -1,11 +1,11 @@
 # node-gitlab-webhook
-基于Node.js的Gitlab Webhooks工具, 支持设置多个钩子.
+基于Node.js的Gitlab Webhooks工具, 支持设置多个仓库。
 
 ## 介绍
 
-这个项目是专门为Gitlab设置，Github的版本：[node-github-webhook](https://github.com/excaliburhan/node-github-webhook).
+这个库是专门为Gitlab设置，Github的版本：[node-github-webhook](https://github.com/excaliburhan/node-github-webhook)。
 
-如果你想要查看Gitlab Webhooks的设置，请看：[gitlab webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html).
+如果你想要查看Gitlab Webhooks的设置，请看：[gitlab webhooks](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html)。
 
 ## 安装
 
@@ -16,11 +16,11 @@
 ```js
 var http = require('http')
 var createHandler = require('node-gitlab-webhook')
-var handler = createHandler([ // 多个钩子
+var handler = createHandler([ // 多个仓库
   { path: '/webhook1', secret: 'secret1' },
   { path: '/webhook2', secret: 'secret2' }
 ])
-// var handler = createHandler({ path: '/webhook1', secret: 'secret1' }) // 单个钩子
+// var handler = createHandler({ path: '/webhook1', secret: 'secret1' }) // 单个仓库
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
