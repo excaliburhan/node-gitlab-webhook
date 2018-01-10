@@ -57,7 +57,7 @@ function create(options) {
 
     checkType(currentOptions)
 
-    if (req.url.split('?').shift() !== currentOptions.path)
+    if (req.url.split('?').shift() !== currentOptions.path || req.method !== 'POST')
       return callback()
 
     var token = req.headers['x-gitlab-token']
