@@ -59,6 +59,10 @@ function create(options) {
 
     if (req.url.split('?').shift() !== currentOptions.path)
       return callback()
+
+    var token = req.headers['x-gitlab-token']
+    if(!token || token !== currentOptions.secret)
+      return hasError('No X-Gitlab-Token found on request or the token did not match')
     
     var event = req.headers['x-gitlab-event']
     var events = currentOptions.events
