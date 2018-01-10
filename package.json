@@ -1,6 +1,6 @@
 {
   "name": "node-gitlab-webhook",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Gitlab Webhooks handler based on Node.js. Support multiple handlers.",
   "main": "index.js",
   "scripts": {
