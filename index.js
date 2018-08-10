@@ -43,7 +43,7 @@ function create(options) {
 
       if (typeof options.path !== 'string')
         throw new TypeError('must provide a \'path\' option')
-      
+
       if (typeof options.secret !== 'string')
         throw new TypeError('must provide a \'secret\' option')
     }
@@ -63,16 +63,16 @@ function create(options) {
     var token = req.headers['x-gitlab-token']
     if(!token || token !== currentOptions.secret)
       return hasError('No X-Gitlab-Token found on request or the token did not match')
-    
+
     var event = req.headers['x-gitlab-event']
     var events = currentOptions.events
 
     if (!event)
       return hasError('No X-Gitlab-Event found on request')
-    
+
     if (events && events.indexOf(event) === -1)
       return hasError('X-Gitlab-Event is not acceptable')
-    
+
     req.pipe(bl(function(err, data) {
       if (err)
         return hasError(err.message)

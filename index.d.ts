@@ -381,6 +381,7 @@ declare module "node-gitlab-webhook/interfaces" {
     export interface GitLabHooks {
         on(type: 'push', callback: (event: EventData<PushEvent>) => void): void;
         on(type: 'tag_push', callback: (event: EventData<TagPushEvent>) => void): void;
+        on(type: 'issue', callback: (event: EventData<IssueEvent>) => void): void;
         on(type: 'note', callback: (event: EventData<NoteEvent>) => void): void;
         on(type: 'merge_request', callback: (event: EventData<MergeRequestEvent>) => void): void;
         on(type: 'wiki_page', callback: (event: EventData<WikiPageEvent>) => void): void;
